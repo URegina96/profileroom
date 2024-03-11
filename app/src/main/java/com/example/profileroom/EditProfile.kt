@@ -17,7 +17,7 @@ class EditProfile : AppCompatActivity() {
             startActivity(intent)
         }
         val buttonSave =findViewById<Button>(R.id.buttonSave)
-        buttonReturn.setOnClickListener {
+        buttonSave.setOnClickListener {
             val name = findViewById<EditText>(R.id.editTextName).text.toString()
             val age = findViewById<EditText>(R.id.editTextAge).text.toString().toInt()
             val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
