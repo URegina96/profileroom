@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 
 class EditProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +15,12 @@ class EditProfile : AppCompatActivity() {
         buttonReturn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+        val buttonSave =findViewById<Button>(R.id.buttonSave)
+        buttonReturn.setOnClickListener {
+            val name = findViewById<EditText>(R.id.editTextName).text.toString()
+            val age = findViewById<EditText>(R.id.editTextAge).text.toString().toInt()
+            val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
         }
     }
 }
