@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class User(
-    @PrimaryKey val id: Int? = null,
-    val name: String,
-    val age: Int,
-    val email: String
+    @PrimaryKey var id: Int = 0,
+    var name: String,
+    var age: Int,
+    var email: String
 )
