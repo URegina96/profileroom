@@ -12,4 +12,7 @@ interface UserDao {
 
     @Query("SELECT * FROM User")
     fun getAll(): List<User>
+
+    @Query("SELECT id FROM User GROUP BY id HAVING COUNT(id) > 1")
+    fun getDuplicateIds(): List<Int>
 }

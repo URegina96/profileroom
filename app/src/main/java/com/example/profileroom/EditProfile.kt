@@ -3,6 +3,7 @@ package com.example.profileroom
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import kotlinx.coroutines.GlobalScope
@@ -38,6 +39,17 @@ class EditProfile : AppCompatActivity() {
 
             GlobalScope.launch {
                 db.userDao().insertUser(user)
+
+                val duplicateIds = db.userDao().getDuplicateIds()
+                if (duplicateIds.isNotEmpty()) {
+                    // Найдены записи с повторяющимися id
+                    for (id in duplicateIds) {
+                        Log.d("DuplicateId", "Duplicate id: $id")
+                    }
+                } else {
+                    // Нет записей с повторяющимися id
+                    Log.d("DuplicateId", "No duplicate ids found")
+                }
             }
         }
     }
