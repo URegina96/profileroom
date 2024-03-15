@@ -7,5 +7,5 @@ import com.example.profileroom.model.User
 @Dao
 interface UserDao {
     @Insert
-    suspend fun insertUser(user: User)
+    fun insertUser(user: User)
 }
